@@ -210,3 +210,9 @@ if (!module.exports.command.includes(commandText)) return;
 2. Pastikan struktur seperti contoh di atas.
 3. Sesuaikan `name`, `command`, `tags`, dan `run`.
 4. Jika ingin menambahkan fungsi tambahan, buat fungsi baru di dalam file yang sama.
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
+## Request & Fix 
+   laporkan Bug ke [sini](https://wa.me/6285725892962?text=halo+kak+aku+ingin+melaporkan+bug)
+   
