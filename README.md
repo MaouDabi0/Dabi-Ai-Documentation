@@ -63,6 +63,9 @@ module.exports = {
       // Fungsi penanganan hanya owner 
       if (!(await onlyOwner(module.exports, conn, message))) return;
 
+      // Fungsi penanganan untuk pengguna premium 
+      if (!(await onlyPremium(module.exports, conn, message))) return;
+
       // Fungsi tag pengguna 
       let targetId = target(message, senderId);
       const mentionTarget = targetId;
