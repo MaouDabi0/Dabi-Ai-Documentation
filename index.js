@@ -12,9 +12,7 @@ if (fs.existsSync(license)) {
   return setInterval(() => {}, 1000);
 }
 
-const setupConfig = require('./setCfg');
-
-const startBot = () => {
+const start = () => {
   const p = fork(path.join(__dirname, 'main.js'), process.argv.slice(2), {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   });
@@ -30,11 +28,8 @@ const startBot = () => {
 
   p.on('exit', (code) => {
     console.log('Exited with code:', code);
-    startBot();
+    start();
   });
 };
 
-(async () => {
-  await setupConfig();
-  startBot();
-})();
+start();
