@@ -35,7 +35,7 @@ function exFile() {
       }
 
       console.log('Merestart bot...');
-      process.exit(0);
+      process.exit(1);
     });
   }).on('error', err => {
     console.error('Gagal mengunduh file:', err);
