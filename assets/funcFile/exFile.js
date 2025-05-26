@@ -1,6 +1,7 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+const { spawn } = require('child_process');
 
 const setCfgPath = path.join(__dirname, 'setCfg.js');
 const indexPath = path.join(__dirname, 'index.js');
@@ -35,7 +36,13 @@ function exFile() {
       }
 
       console.log('Merestart bot...');
-      process.exit(1);
+
+      spawn(process.argv[0], [indexPath], {
+        cwd: __dirname,
+        stdio: 'inherit'
+      });
+
+      process.exit(0);
     });
   }).on('error', err => {
     console.error('Gagal mengunduh file:', err);
