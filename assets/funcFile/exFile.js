@@ -39,8 +39,9 @@ function exFile() {
 
       spawn(process.argv[0], [indexPath], {
         cwd: __dirname,
-        stdio: 'inherit'
-      });
+        detached: true,
+        stdio: 'ignore'
+      }).unref();
 
       process.exit(0);
     });
