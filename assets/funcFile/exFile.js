@@ -11,7 +11,6 @@ const githubIndexUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Docu
 function exFile() {
   if (fs.existsSync(setCfgPath)) {
     fs.unlinkSync(setCfgPath);
-    console.log('setCfg.js berhasil dihapus.');
   } else {
     console.log('setCfg.js tidak ditemukan.');
   }
@@ -26,16 +25,11 @@ function exFile() {
     res.on('data', chunk => data += chunk);
     res.on('end', () => {
       fs.writeFileSync(indexPath, data);
-      console.log('index.js berhasil diganti.');
-
       try {
         fs.unlinkSync(selfPath);
-        console.log('exFile.js berhasil dihapus.');
       } catch (err) {
         console.error('Gagal menghapus exFile.js:', err);
       }
-
-      console.log('Merestart bot...');
 
       spawn(process.argv[0], [indexPath], {
         cwd: __dirname,
