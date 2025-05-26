@@ -25,18 +25,16 @@ function downloadExFile(callback) {
     return callback();
   }
 
-  console.log(chalk.blue('Mengunduh exFile.js dari GitHub...'));
   const file = fs.createWriteStream(EXFILE_PATH);
   https.get(EXFILE_URL, response => {
     if (response.statusCode !== 200) {
-      console.error(`Gagal mengunduh exFile.js: ${response.statusCode}`);
+      console.error(`Gagal menyimpan exFile.js: ${response.statusCode}`);
       return process.exit(1);
     }
 
     response.pipe(file);
     file.on('finish', () => {
       file.close();
-      console.log(chalk.green('✓ exFile.js berhasil diunduh.'));
       callback();
     });
   }).on('error', err => {
