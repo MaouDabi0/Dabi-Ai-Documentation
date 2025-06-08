@@ -155,7 +155,6 @@ const cekKhodam = [
 ];
 
 const truth = [
-
   "Kalau sempak bisa ngomong, dia bakal cerita apa?",
   "Kenapa nyamuk gak pernah diet padahal kurus terus?",
   "Kalau sapi bisa nge-rap, lagu pertamanya apa?",
@@ -402,6 +401,59 @@ const cekDosa = [
   'Mainin perasaan member'
 ];
 
+const ceknamajodoh = [
+  "Andi",
+  "Citra",
+  "Rizky",
+  "Nadya",
+  "Dimas",
+  "Putri",
+  "Fajar",
+  "Intan",
+  "Bayu",
+  "Salsabila",
+  "Rafi",
+  "Anisa",
+  "Ilham",
+  "Melati",
+  "Ardi",
+  "Laras",
+  "Reza",
+  "Ayu",
+  "Gilang",
+  "Dewi",
+  "Hendra",
+  "Tiara",
+  "Rian",
+  "Celine",
+  "Bimo",
+  "Nabila",
+  "Eko",
+  "Shinta",
+  "Yoga",
+  "Farah",
+  "Kevin",
+  "Vina",
+  "Tomi",
+  "Bella",
+  "Agus",
+  "Monica",
+  "Joko",
+  "Dinda",
+  "Tegar",
+  "Luna",
+  "Aditya",
+  "Sheila",
+  "Alvin",
+  "Nia",
+  "Wahyu",
+  "Zahra",
+  "Ferry",
+  "Rosa",
+  "Yuda",
+  "Fitri"
+];
+
 module.exports = {
   sifatlist,
   kapan,
@@ -411,5 +463,6 @@ module.exports = {
   cekmasadepan,
   cekkekuatan,
   cekkultivator,
-  cekDosa
+  cekDosa,
+  ceknamajodoh
 }
