@@ -42,23 +42,15 @@ module.exports = {
   isOwner: false || true,
   isPremium: false || true,
 
-  run: async (conn, message, { isPrefix }) => {
+  run: async (conn, message, {
+    chatInfo,
+    prefix,
+    commandText,
+    args,
+    textMessage
+  }) => {
     try {
-      const chatId = message.key.remoteJid;
-      const isGroup = chatId.endsWith('@g.us');
-      const senderId = isGroup ? message.key.participant : chatId.replace(/:\d+@/, '@');
-      const textMessage = message.message?.conversation || message.message?.extendedTextMessage?.text || '';
-      const quotedMessage = message.message?.extendedTextMessage?.contextInfo?.quotedMessage;
-
-      if (!textMessage) return;
-
-      // Deteksi prefix yang digunakan
-      const prefix = isPrefix.find(p => textMessage.startsWith(p));
-      if (!prefix) return;
-
-      // Ambil perintah setelah prefix
-      const commandText = textMessage.slice(prefix.length).trim().split(/\s+/)[0].toLowerCase();
-      if (!module.exports.command.includes(commandText)) return;
+      const { chatId, senderId, isGroup } = chatInfo;
 
       // Fungsi penanganan hanya owner 
       if (!(await onlyOwner(module.exports, conn, message))) return;
@@ -90,7 +82,6 @@ module.exports = {
 ### Parameter Fungsi run
 - ```conn```  -->  Objek utama dari Baileys untuk mengirim pesan.
 - ```message```  -->  Data pesan yang diterima oleh bot.
-- ```isPrefix```  -->  Array yang berisi semua prefix yang didukung.
 
 
 ### Contoh Penggunaan
@@ -118,7 +109,12 @@ module.exports = {
   isOwner: true,
   isPremium: false,
 
-  run: async (conn, message, { isPrefix }) => { ... }
+  run: async (conn, message, {
+    chatInfo,
+    prefix,
+    commandText,
+    args
+  }) => { ... }
 };
 ```
 
@@ -132,17 +128,23 @@ module.exports = {
 - ```run```  -->  Fungsi utama yang dijalankan saat plugin dipanggil.
 
 3. Ekstraksi Data Pesan
+
 ```js
-const chatId = message.key.remoteJid;
-const isGroup = chatId.endsWith('@g.us');
-const senderId = isGroup ? message.key.participant : chatId.replace(/:\d+@/, '@');
-const textMessage = message.message?.conversation || message.message?.extendedTextMessage?.text || '';
+  run: async (conn, message, {
+    chatInfo,
+    prefix,
+    commandText,
+    textMessage,
+    args
+  }) => { ... }
 ```
 
 - ```chatId```  -->  ID chat, dapat berupa personal atau grup.
+- ```prefix```  -->  Array yang berisi semua prefix yang didukung.
 - ```isGroup```  -->  Mengecek apakah pesan berasal dari grup.
 - ```senderId```  -->  ID pengirim pesan.
 - ```textMessage```  -->  Teks yang dikirim oleh pengguna.
+- ```commandText```  -->  Mengambil perintah setelah prefix.
 
 <h4>
  <p align="left">
@@ -186,24 +188,8 @@ const isMedia = !!(
 ```
 
 ```isMedia```  -->  Menentukan apakah pesan tersebut berisi media (gambar, video, audio, dokumen, atau stiker).<br> <br>
-4. Validasi prefix dan command
-```js
-const prefix = isPrefix.find((p) => textMessage.startsWith(p));
-if (!prefix) return;
-```
 
-```js
-const commandText = textMessage.slice(prefix.length).trim().split(/\s+/)[0].toLowerCase();
-if (!module.exports.command.includes(commandText)) return;
-
-```
-- ```isPrefix```  -->  Mengecek apakah pesan diawali dengan salah satu prefix yang diatur (isPrefix).
-- Jika tidak ada prefix yang cocok, maka plugin tidak akan dieksekusi.
-
-- ```commandText```  -->  Mengambil perintah setelah prefix.
-- ```includes(commandText)```  -->  Mengecek apakah perintah sesuai dengan plugin.
-
-5. Tips pengembangan
+4. Tips pengembangan
 - gunakan ```conn.sendMessage``` untuk mengirim pesan.
 - Gunakan ```quoted: message``` jika ingin membalas langsung ke pesan pengguna.
 - Pastikan semua error ditangani dengan baik menggunakan ```try-catch```
