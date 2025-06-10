@@ -24,6 +24,32 @@ const sifatlist = [
   'Sensitif'
 ];
 
+const when = [
+  '100 tahun lagi',
+  'owner jadi femboy',
+  'aku diseriusin',
+  'rasa ini hilang',
+  'kita ketemu lagi',
+  'aku merasa cukup',
+  'mimpi jadi kenyataan',
+  'aku benar-benar bahagia',
+  'hidup nggak sesulit ini',
+  'ada yang ngajak nikah',
+  'aku nggak jadi plan B orang',
+  'semuanya jadi lebih mudah',
+  'aku bisa membanggakan orang tuaku',
+  'aku bisa berhenti capek terus',
+  'ada yang bener-bener sayang sama aku',
+  'aku bisa tidur tanpa mikir apa-apa',
+  'dompetku tebal bukan karena struk',
+  'aku nggak salah terus di mata orang',
+  'aku dikira ganteng tanpa harus buka filter',
+  'bisa rebahan tanpa rasa bersalah',
+  'rambut rontok bisa diklaim BPJS',
+  'hidup nggak cuma bangun–kerja–capek–ulang lagi'
+];
+
+
 const kapan = [
   '8bulan lagi',
   '2minggu lagi',
@@ -456,6 +482,7 @@ const ceknamajodoh = [
 
 module.exports = {
   sifatlist,
+  when,
   kapan,
   ask,
   cekKhodam,
