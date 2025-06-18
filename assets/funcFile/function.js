@@ -480,6 +480,39 @@ const ceknamajodoh = [
   "Fitri"
 ];
 
+const dareList = [
+  "Teriak 'Aku lapar!' 3 kali",
+  "Chat orang random 'Aku sayang kamu'",
+  "Ganti nama WA jadi 'Bucin Sejati'",
+  "Kirim voice note nyanyi lagu anak-anak",
+  "Pura-pura salah kirim 'I Love U'",
+  "Kirim pesan 'gue lapar' ke 10 orang",
+  "Ganti foto profil jadi gambar mie instan",
+  "Buat status 'lagi pengen dinikahin'",
+  "Kirim pantun gombal",
+  "Kirim pesan 'aku suka kamu dari lama'",
+  "Kirim voice note ketawa jahat",
+  "Tulis puisi sedih tentang sandal hilang",
+  "Kirim pesan 'aku haus perhatian' ke 5 orang",
+  "Panggil semua di grup pakai nama buah",
+  "Ngomong sendiri di grup pakai 2 akun",
+  "Kirim foto barang paling aneh di rumah",
+  "Buat status galau tanpa alasan",
+  "Kirim pesan 'kamu cantik banget' ke temen cowo",
+  "Chat mantan 'kamu bahagia nggak?'",
+  "Ganti nama kontak crush jadi 'My Jodoh'",
+  "VN ngomong pakai suara robot",
+  "Kirim 'aku mimpiin kamu semalam' ke teman",
+  "Kirim selfie paling jelek dan bangga",
+  "Bilang 'meong' tiap 5 menit selama 30 menit",
+  "VN nyanyi lagu horror",
+  "Upload selfie pakai filter aneh ke status",
+  "Kirim pesan 'kamu jodoh aku deh' ke teman acak",
+  "Pakai emoji 😭 di semua chat selama sejam",
+  "Kirim video joget paling malu-maluin",
+  "Bilang 'aku kentut' di grup rame",
+];
+
 module.exports = {
   sifatlist,
   when,
@@ -491,5 +524,6 @@ module.exports = {
   cekkekuatan,
   cekkultivator,
   cekDosa,
-  ceknamajodoh
+  ceknamajodoh,
+  darelist
 }
