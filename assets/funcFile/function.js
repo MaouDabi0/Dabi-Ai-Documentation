@@ -480,7 +480,7 @@ const ceknamajodoh = [
   "Fitri"
 ];
 
-const dareList = [
+const darelist = [
   "Teriak 'Aku lapar!' 3 kali",
   "Chat orang random 'Aku sayang kamu'",
   "Ganti nama WA jadi 'Bucin Sejati'",
