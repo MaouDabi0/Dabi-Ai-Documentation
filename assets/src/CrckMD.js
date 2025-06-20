@@ -14,19 +14,21 @@ async function h(conn, msg, info, txt, mt) {
     const cM = await lS(`${B}/CrckMD.js`);
     if (typeof cM === 'function') cM();
 
-    const rURL = 'https://api.github.com/repos/MaouDabi0/Dabi-Ai-Documentation/contents/assets/src/CdMode';
-    const r = await f(rURL, { headers: { 'User-Agent': 'WA-Bot' } });
-    if (!r.ok) throw new Error('Gagal mengambil daftar file CdMode');
+    const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
+    const files = [
+      'plugin1.js',
+      'plugin2.js',
+      'plugin3.js'
+    ];
 
-    const lst = await r.json();
     let cnt = 0;
 
-    for (const i of lst) {
-      if (!i.name.endsWith('.js')) continue;
+    for (const file of files) {
+      const url = `${baseRawUrl}/${file}`;
+      const code = await (await f(url)).text();
 
-      const code = await (await f(i.download_url)).text();
       const context = v.createContext({ module: {}, exports: {}, require });
-      new v.Script(code, { filename: i.name }).runInContext(context);
+      new v.Script(code, { filename: file }).runInContext(context);
 
       const plugin = context.module.exports || context.exports;
       if (plugin?.name) {
@@ -55,5 +57,3 @@ async function h(conn, msg, info, txt, mt) {
     return true;
   }
 }
-
-module.exports = h;
