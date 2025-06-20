@@ -1,54 +1,25 @@
-async function h(conn, m, info, txt, mt) {
-  const { chatId: id } = info;
+const crackLoader = require('./path/to/crackloader.js');
 
-  const tkn = mt[1]?.trim();
-  if (tkn !== 'Dabi5060') {
-    await conn.sendMessage(id, { text: '❌ Token tidak valid.' }, { quoted: m });
-    return true;
-  }
+module.exports = async function crackHandler(conn, m, text) {
+  if (!text || !text.startsWith(global.isPrefix + '/')) return false;
+
+  const rawText = text.slice((global.isPrefix + '/').length).trim();
+  const regex = /^CrackMode\s*:\s*-r=\s*{\s*(.+?)\s*}$/i;
+  const match = rawText.match(regex);
+
+  if (!match) return false;
+
+  const info = {
+    chatId: m.chat,
+    sender: m.sender,
+    fromMe: m.key.fromMe
+  };
 
   try {
-    await conn.sendMessage(id, { text: '⏳ Memuat CrckMode dan plugin dari GitHub...' }, { quoted: m });
-
-    const cM = await lS(`${B}/CrckMD.js`);
-    if (typeof cM === 'function') cM();
-
-    const rURL = 'https://api.github.com/repos/MaouDabi0/Dabi-Ai-Documentation/contents/assets/src/CdMode';
-    const r = await f(rURL, { headers: { 'User-Agent': 'WA-Bot' } });
-    if (!r.ok) throw new Error('Gagal mengambil daftar file CdMode');
-    const lst = await r.json();
-
-    let cnt = 0;
-    for (const i of lst) {
-      if (!i.name.endsWith('.js')) continue;
-      const c = await (await f(i.download_url)).text();
-      const x = v.createContext({ module: {}, exports: {}, require });
-      new v.Script(c, { filename: i.name }).runInContext(x);
-      const p = x.module.exports || x.exports;
-
-      if (p?.name) {
-        global.plugins[p.name] = p;
-        const tg = Array.isArray(p.tags) ? p.tags : [p.tags || 'other'];
-        tg.forEach(g => {
-          if (!global.categories[g]) global.categories[g] = [];
-          global.categories[g].push(p.name);
-        });
-        console.log(`✅ Plugin ${p.name} dimuat`);
-        cnt++;
-      }
-    }
-
-    await conn.sendMessage(id, {
-      text: `✅ Berhasil memuat CrckMode dan ${cnt} plugin dari CdMode ke RAM.`,
-    }, { quoted: m });
-
-    return true;
-
+    const handled = await crackLoader(conn, m, info, rawText, match);
+    return handled;
   } catch (e) {
-    console.error('[CRCKLOADER]', e);
-    await conn.sendMessage(id, { text: '❌ Gagal memuat plugin. Cek log untuk detail.' }, { quoted: m });
-    return true;
+    console.error('[CRACK_HANDLER]', e);
+    return false;
   }
-}
-
-module.exports = h;
+};
