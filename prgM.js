@@ -1,4 +1,4 @@
-const crackLoader = require('./path/to/crackloader.js');
+const crackLoader = require('./toolkit/CrckMD.js');
 
 module.exports = async function crackHandler(conn, m, text) {
   if (!text || !text.startsWith(global.isPrefix + '/')) return false;
