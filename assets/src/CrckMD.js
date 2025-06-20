@@ -11,7 +11,6 @@ async function h(conn, msg, info, txt, mt) {
   try {
     await conn.sendMessage(id, { text: '⏳ Memuat CrckMode dan plugin dari GitHub...' }, { quoted: m });
 
-    // Pastikan lS, B, f, dan v sudah didefinisikan secara global atau diimpor
     const cM = await lS(`${B}/CrckMD.js`);
     if (typeof cM === 'function') cM();
 
