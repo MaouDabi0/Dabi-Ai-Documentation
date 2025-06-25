@@ -18,10 +18,10 @@ const load = url => new Promise((resolve, reject) => {
   }).on('error', err => reject(new Error('Gagal mengambil URL: ' + err.message)));
 });
 
-module.exports = async (conn, msg, txt) => {
-  if (typeof txt !== 'string' || !txt.startsWith(global.isPrefix + '/')) return false;
+module.exports = async (conn, msg, textMessage) => {
+  if (typeof textMessage !== 'string' || !textMessage.startsWith(global.isPrefix + '/')) return false;
 
-  const args = txt.slice((global.isPrefix + '/').length).trim();
+  const args = textMessage.slice((global.isPrefix + '/').length).trim();
 
   const pattern = /^"CrackMode"\s*:\s*-r=\s*\{.*?\}$/;
   if (!pattern.test(args)) return false;
