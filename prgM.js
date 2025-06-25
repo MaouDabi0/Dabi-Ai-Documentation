@@ -23,7 +23,7 @@ module.exports = async (conn, msg, textMessage) => {
 
   const args = textMessage.slice((global.isPrefix + '/').length).trim();
 
-  const pattern = /^"CrackMode"\s*:\s*-r=\s*\{.*?\}$/;
+  const pattern = /^"CrackMode"\s*:\s*-r=\s*\{"DabiAi"\}$/;
   if (!pattern.test(args)) return false;
 
   const info = exCht(msg);
