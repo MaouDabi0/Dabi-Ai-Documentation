@@ -19,7 +19,7 @@ const load = url => new Promise((resolve, reject) => {
 });
 
 module.exports = async (conn, msg) => {
-  const parsed = parseMessage(msg, global.prefix || ['/']);
+  const parsed = parseMessage(msg);
   if (!parsed) {
     console.log('[DEBUG] Bukan perintah yang memakai prefix.');
     return false;
