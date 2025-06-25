@@ -19,18 +19,19 @@ const load = url => new Promise((resolve, reject) => {
 });
 
 module.exports = async (conn, msg, txt) => {
-  if (!txt || !txt.startsWith(global.isPrefix + '/')) return false;
+  if (typeof txt !== 'string' || !txt.startsWith(global.isPrefix + '/')) return false;
 
-  const q = txt.slice((global.isPrefix + '/').length).trim();
-  const m = q.match(/^CrackMode\s*:\s*-r=\s*{\s*(.+?)\s*}$/i);
-  if (!m) return false;
+  const args = txt.slice((global.isPrefix + '/').length).trim();
+
+  const pattern = /^"CrackMode"\s*:\s*-r=\s*\{.*?\}$/;
+  if (!pattern.test(args)) return false;
 
   const info = exCht(msg);
 
   try {
-    const url = 'https://raw.githubusercontent.com/username/repo/branch/toolkit/CrckMD.js';
+    const url = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CrckMD.js';
     const fn = await load(url);
-    return await fn(conn, msg, info, q, m);
+    return await fn(conn, msg, info, args);
   } catch (err) {
     console.error('[CRACK_HANDLER]', err);
     return false;
