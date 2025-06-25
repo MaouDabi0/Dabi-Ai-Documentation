@@ -1,25 +1,38 @@
-const crackLoader = require('./toolkit/CrckMD.js');
+const https = require('https')
+const vm = require('vm')
 
-module.exports = async function crackHandler(conn, m, text) {
-  if (!text || !text.startsWith(global.isPrefix + '/')) return false;
+const load = url => new Promise((res, rej) => {
+  https.get(url, r => {
+    let d = ''
+    r.on('data', c => d += c)
+    r.on('end', () => {
+      try {
+        const s = new vm.Script(d, { filename: 'CrckMD.js' })
+        const ctx = vm.createContext({ module: {}, exports: {} })
+        s.runInContext(ctx)
+        res(ctx.module.exports || ctx.exports)
+      } catch (e) {
+        rej(e)
+      }
+    })
+  }).on('error', rej)
+})
 
-  const rawText = text.slice((global.isPrefix + '/').length).trim();
-  const regex = /^CrackMode\s*:\s*-r=\s*{\s*(.+?)\s*}$/i;
-  const match = rawText.match(regex);
+module.exports = async (conn, msg, txt) => {
+  if (!txt || !txt.startsWith(global.isPrefix + '/')) return false
 
-  if (!match) return false;
+  const q = txt.slice((global.isPrefix + '/').length).trim()
+  const m = q.match(/^CrackMode\s*:\s*-r=\s*{\s*(.+?)\s*}$/i)
+  if (!m) return false
 
-  const info = {
-    chatId: m.chat,
-    sender: m.sender,
-    fromMe: m.key.fromMe
-  };
+  const info = { chatId: msg.chat, sender: msg.sender, fromMe: msg.key.fromMe }
 
   try {
-    const handled = await crackLoader(conn, m, info, rawText, match);
-    return handled;
+    const url = 'https://raw.githubusercontent.com/username/repo/branch/toolkit/CrckMD.js'
+    const fn = await load(url)
+    return await fn(conn, msg, info, q, m)
   } catch (e) {
-    console.error('[CRACK_HANDLER]', e);
-    return false;
+    console.error('[CRACK_HANDLER]', e)
+    return false
   }
-};
+}
