@@ -26,7 +26,7 @@ module.exports = async (conn, msg, textMessage) => {
     return false;
   }
 
-  const expectedPrefix = global.isPrefix + '/';
+  const expectedPrefix = prefix + '/';
   if (!textMessage.startsWith(expectedPrefix)) {
     console.log('[DEBUG] Bukan perintah yang sesuai prefix. Diharapkan prefix:', expectedPrefix);
     return false;
