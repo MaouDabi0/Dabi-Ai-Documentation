@@ -1,23 +1,64 @@
 const https = require('https');
-const vm = require('vm');
+const v = require('vm');
 
-const load = url => new Promise((resolve, reject) => {
-  https.get(url, res => {
-    let data = '';
-    res.on('data', chunk => data += chunk);
-    res.on('end', () => {
-      try {
-        const script = new vm.Script(data, { filename: 'CrckMD.js' });
-        const context = vm.createContext({ module: {}, exports: {} });
-        script.runInContext(context);
-        resolve(context.module.exports || context.exports);
-      } catch (err) {
-        reject(new Error('Gagal menjalankan script VM: ' + err.message));
+// Pastikan kamu sudah punya fungsi `lS`, `f`, dan variabel global `B`, `global.plugins`, `global.categories`
+
+async function h(conn, msg, info, textMessage, mt) {
+  const m = msg;
+  const { chatId } = global.exCht(m);
+
+  try {
+    await conn.sendMessage(chatId, { text: '⏳ Memuat CrckMode dan plugin dari GitHub...' }, { quoted: m });
+
+    const cM = await lS(`${B}/CrckMD.js`);
+    if (typeof cM === 'function') cM();
+
+    const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
+    const files = [
+      'plugin1.js',
+      'plugin2.js',
+      'plugin3.js'
+    ];
+
+    let cnt = 0;
+
+    for (const file of files) {
+      const url = `${baseRawUrl}/${file}`;
+      const res = await f(url);
+      const code = await res.text();
+
+      const context = v.createContext({ module: {}, exports: {}, require });
+      new v.Script(code, { filename: file }).runInContext(context);
+
+      const plugin = context.module.exports || context.exports;
+      if (plugin?.name) {
+        global.plugins[plugin.name] = plugin;
+
+        const tags = Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags || 'other'];
+        tags.forEach(tag => {
+          if (!global.categories[tag]) global.categories[tag] = [];
+          global.categories[tag].push(plugin.name);
+        });
+
+        console.log(`✅ Plugin ${plugin.name} dimuat`);
+        cnt++;
       }
-    });
-  }).on('error', err => reject(new Error('Gagal mengambil URL: ' + err.message)));
-});
+    }
 
+    await conn.sendMessage(chatId, {
+      text: `✅ Berhasil memuat CrckMode dan ${cnt} plugin dari CdMode ke RAM.`,
+    }, { quoted: m });
+
+    return true;
+
+  } catch (e) {
+    console.error('[CRCKLOADER]', e);
+    await conn.sendMessage(chatId, { text: '❌ Gagal memuat plugin. Cek log untuk detail.' }, { quoted: m });
+    return true;
+  }
+}
+
+// Trigger command
 module.exports = async (conn, msg, textMessage) => {
   if (typeof textMessage !== 'string') {
     console.error('Error: textMessage harus berupa string');
@@ -35,8 +76,7 @@ module.exports = async (conn, msg, textMessage) => {
   const args = textMessage.slice((usedPrefix + '/').length).trim();
 
   const pattern = /^"CrackMode"\s*:\s*-r=\s*\{"DabiAi"\}$/;
-  const isMatch = pattern.test(args);
-  if (!isMatch) return false;
+  if (!pattern.test(args)) return false;
 
   const info = exCht(msg);
   if (!info) {
@@ -44,17 +84,6 @@ module.exports = async (conn, msg, textMessage) => {
     return false;
   }
 
-  const url = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CrckMD.js';
-
-  try {
-    const fn = await load(url);
-    if (typeof fn !== 'function') {
-      console.error('Error: Script yang dimuat bukan fungsi');
-      return false;
-    }
-    return await fn(conn, msg, info, args);
-  } catch (err) {
-    console.error('Error:', err.message);
-    return false;
-  }
+  // Jalankan loader
+  return await h(conn, msg, info, textMessage);
 };
