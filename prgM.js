@@ -1,8 +1,36 @@
+const fs = require('fs');
 const https = require('https');
 const v = require('vm');
+const path = require('path');
 
-// Pastikan kamu sudah punya fungsi `lS`, `f`, dan variabel global `B`, `global.plugins`, `global.categories`
+// Fungsi untuk load dan eksekusi file lokal (CrckMD.js)
+global.lS = async (filePath) => {
+  try {
+    const code = await fs.promises.readFile(filePath, 'utf8');
+    const script = new v.Script(code, { filename: path.basename(filePath) });
+    const context = v.createContext({ module: {}, exports: {}, require });
+    script.runInContext(context);
+    return context.module.exports || context.exports;
+  } catch (err) {
+    console.error('[lS Error]', err);
+    return null;
+  }
+};
 
+// Fungsi fetch untuk ambil file dari GitHub (mirip fetch)
+global.f = (url) => new Promise((resolve, reject) => {
+  https.get(url, res => {
+    let data = '';
+    res.on('data', chunk => data += chunk);
+    res.on('end', () => {
+      resolve({
+        text: async () => data
+      });
+    });
+  }).on('error', reject);
+});
+
+// Fungsi utama loader
 async function h(conn, msg, info, textMessage, mt) {
   const m = msg;
   const { chatId } = global.exCht(m);
@@ -10,9 +38,11 @@ async function h(conn, msg, info, textMessage, mt) {
   try {
     await conn.sendMessage(chatId, { text: '⏳ Memuat CrckMode dan plugin dari GitHub...' }, { quoted: m });
 
+    // Load file lokal CrckMD.js
     const cM = await lS(`${B}/CrckMD.js`);
     if (typeof cM === 'function') cM();
 
+    // URL dasar GitHub
     const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
     const files = [
       'plugin1.js',
@@ -58,7 +88,7 @@ async function h(conn, msg, info, textMessage, mt) {
   }
 }
 
-// Trigger command
+// Trigger command handler
 module.exports = async (conn, msg, textMessage) => {
   if (typeof textMessage !== 'string') {
     console.error('Error: textMessage harus berupa string');
@@ -84,6 +114,5 @@ module.exports = async (conn, msg, textMessage) => {
     return false;
   }
 
-  // Jalankan loader
   return await h(conn, msg, info, textMessage);
 };
