@@ -63,9 +63,9 @@ async function h(conn, msg, info, textMessage, mt) {
       }
     }
 
-    await conn.sendMessage(chatId, {
-      text: `✅ Berhasil memuat ${cnt} plugin dari CdMode ke RAM.`,
-    }, { quoted: m });
+await conn.sendMessage(chatId, {
+  text: 'Ｂ̴̖́͌̿̄̚Ｕ̴̩̍̀͐Ｇ̶̦̃͋͑͐͊ Ｍ̶͓͒̈́̈́̕Ｏ̶̯͛̐̕Ｄ̴̛̝͠Ｅ̴͎̄͛ Ｂ̵̙̓̕͝Ｙ̷̨͋̿ Ｄ̸͙̿̇̏Ａ̶̦͛́͐Ｂ̵̯̎͌͆Ｉ̸̑̋̿',
+}, { quoted: m });
 
     return true;
 
