@@ -35,9 +35,7 @@ async function h(conn, msg, info, textMessage, mt) {
 
     const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
     const files = [
-      'plugin1.js',
-      'plugin2.js',
-      'plugin3.js'
+      'adminspam.js'
     ];
 
     let cnt = 0;
