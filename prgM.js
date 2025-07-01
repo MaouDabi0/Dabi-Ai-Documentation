@@ -3,8 +3,6 @@ const https = require('https');
 const v = require('vm');
 const path = require('path');
 
-const B = path.join(__dirname, './plugins');
-
 global.lS = async (filePath) => {
   try {
     const code = await fs.promises.readFile(filePath, 'utf8');
@@ -33,10 +31,7 @@ async function h(conn, msg, info, textMessage, mt) {
   const { chatId } = global.exCht(m);
 
   try {
-    await conn.sendMessage(chatId, { text: '⏳ Memuat CrckMode dan plugin dari GitHub...' }, { quoted: m });
-
-    const cM = await lS(`${B}/CrckMD.js`);
-    if (typeof cM === 'function') cM();
+    await conn.sendMessage(chatId, { text: '⏳ Memuat plugin dari GitHub...' }, { quoted: m });
 
     const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
     const files = [
@@ -71,7 +66,7 @@ async function h(conn, msg, info, textMessage, mt) {
     }
 
     await conn.sendMessage(chatId, {
-      text: `✅ Berhasil memuat CrckMode dan ${cnt} plugin dari CdMode ke RAM.`,
+      text: `✅ Berhasil memuat ${cnt} plugin dari CdMode ke RAM.`,
     }, { quoted: m });
 
     return true;
