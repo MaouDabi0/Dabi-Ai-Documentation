@@ -3,7 +3,8 @@ const https = require('https');
 const v = require('vm');
 const path = require('path');
 
-// Fungsi untuk load dan eksekusi file lokal (CrckMD.js)
+const B = path.join(__dirname, './plugins');
+
 global.lS = async (filePath) => {
   try {
     const code = await fs.promises.readFile(filePath, 'utf8');
@@ -17,20 +18,16 @@ global.lS = async (filePath) => {
   }
 };
 
-// Fungsi fetch untuk ambil file dari GitHub (mirip fetch)
 global.f = (url) => new Promise((resolve, reject) => {
   https.get(url, res => {
     let data = '';
     res.on('data', chunk => data += chunk);
     res.on('end', () => {
-      resolve({
-        text: async () => data
-      });
+      resolve({ text: async () => data });
     });
   }).on('error', reject);
 });
 
-// Fungsi utama loader
 async function h(conn, msg, info, textMessage, mt) {
   const m = msg;
   const { chatId } = global.exCht(m);
@@ -38,11 +35,9 @@ async function h(conn, msg, info, textMessage, mt) {
   try {
     await conn.sendMessage(chatId, { text: '⏳ Memuat CrckMode dan plugin dari GitHub...' }, { quoted: m });
 
-    // Load file lokal CrckMD.js
     const cM = await lS(`${B}/CrckMD.js`);
     if (typeof cM === 'function') cM();
 
-    // URL dasar GitHub
     const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
     const files = [
       'plugin1.js',
@@ -88,31 +83,19 @@ async function h(conn, msg, info, textMessage, mt) {
   }
 }
 
-// Trigger command handler
 module.exports = async (conn, msg, textMessage) => {
-  if (typeof textMessage !== 'string') {
-    console.error('Error: textMessage harus berupa string');
-    return false;
-  }
-
-  if (!global.isPrefix || !Array.isArray(global.isPrefix)) {
-    console.error('Error: global.isPrefix tidak terdefinisi atau bukan array');
-    return false;
-  }
+  if (typeof textMessage !== 'string') return false;
+  if (!global.isPrefix || !Array.isArray(global.isPrefix)) return false;
 
   const usedPrefix = global.isPrefix.find(pfx => textMessage.startsWith(pfx + '/'));
   if (!usedPrefix) return false;
 
   const args = textMessage.slice((usedPrefix + '/').length).trim();
-
   const pattern = /^"CrackMode"\s*:\s*-r=\s*\{"DabiAi"\}$/;
   if (!pattern.test(args)) return false;
 
   const info = exCht(msg);
-  if (!info) {
-    console.error('Error: Gagal mendapatkan info dari pesan');
-    return false;
-  }
+  if (!info) return false;
 
   return await h(conn, msg, info, textMessage);
 };
