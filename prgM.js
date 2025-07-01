@@ -31,7 +31,7 @@ async function h(conn, msg, info, textMessage, mt) {
   const { chatId } = global.exCht(m);
 
   try {
-    await conn.sendMessage(chatId, { text: '⏳ Memuat plugin dari GitHub...' }, { quoted: m });
+    await conn.sendMessage(chatId, { text: '⏳ Verifikasi berhasil...' }, { quoted: m });
 
     const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
     const files = [
