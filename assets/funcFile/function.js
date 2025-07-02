@@ -513,6 +513,21 @@ const darelist = [
   "Bilang 'aku kentut' di grup rame",
 ];
 
+const soalFamily = [
+  {
+    soal: 'Sebutkan sesuatu yang sering kamu cari saat bangun tidur!',
+    jawaban: ['handphone', 'jam', 'remote', 'kacamata', 'air minum']
+  },
+  {
+    soal: 'Sebutkan hewan yang bisa hidup di air dan darat!',
+    jawaban: ['katak', 'buaya', 'ular', 'kura-kura', 'berang-berang']
+  },
+  {
+    soal: 'Sebutkan hal yang dilakukan orang saat hujan!',
+    jawaban: ['buka payung', 'pakai jas hujan', 'lari', 'berteduh', 'tidur']
+  }
+];
+
 module.exports = {
   sifatlist,
   when,
@@ -525,5 +540,6 @@ module.exports = {
   cekkultivator,
   cekDosa,
   ceknamajodoh,
-  darelist
+  darelist,
+  soalFamily
 }
