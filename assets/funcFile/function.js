@@ -528,6 +528,15 @@ const soalFamily = [
   }
 ];
 
+const tebakSoal = [
+  { soal: 'Di mana pertempuran terakhir Napoleon?', jawaban: ['di halaman terakhir'] },
+  { soal: 'Apa bedanya daun dengan kamu?', jawaban: ['daun jatuh ke tanah, kamu jatuh ke hati aku'] },
+  { soal: 'Kenapa komputer sering kedinginan?', jawaban: ['karena sering buka jendela'] },
+  { soal: 'Kenapa gajah tidak bisa main komputer?', jawaban: ['karena takut mouse'] },
+  { soal: 'Kenapa ikan bahagia?', jawaban: ['karena berada di sekolah'] },
+];
+
+
 module.exports = {
   sifatlist,
   when,
@@ -541,5 +550,6 @@ module.exports = {
   cekDosa,
   ceknamajodoh,
   darelist,
-  soalFamily
+  soalFamily,
+  tebakSoal
 }
