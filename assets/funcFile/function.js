@@ -533,7 +533,7 @@ const tebakSoal = [
   { soal: 'Apa bedanya daun dengan kamu?', jawaban: ['daun jatuh ke tanah, kamu jatuh ke hati aku'] },
   { soal: 'Kenapa komputer sering kedinginan?', jawaban: ['karena sering buka jendela'] },
   { soal: 'Kenapa gajah tidak bisa main komputer?', jawaban: ['karena takut mouse'] },
-  { soal: 'Kenapa ikan bahagia?', jawaban: ['karena berada di sekolah'] },
+  { soal: 'Kenapa ikan bahagia?', jawaban: ['karena ii kan lucu'] },
   { soal: 'Apa yang dipakai dokter waktu hujan?', jawaban: ['jas hujan'] },
   { soal: 'Kenapa ayam tidak pakai internet?', jawaban: ['karena takut ke-chicken'] },
   { soal: 'Apa makanan favorit hantu?', jawaban: ['setan kentang'] },
