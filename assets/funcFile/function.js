@@ -585,6 +585,25 @@ const tebakSoal = [
   { soal: 'Kenapa ember suka galau?', jawaban: ['karena sering ditampung perasaan'] }
 ];
 
+const siapaAkuSoal = [
+  {
+    soal: 'Setiap orang membutuhkan aku tapi mereka memberi saya pergi setiap hari.',
+    jawaban: 'Uang'
+  },
+  {
+    soal: 'Aku tak bisa dilihat tapi bisa dirasakan, aku datang saat kau sedih maupun senang.',
+    jawaban: 'Perasaan'
+  },
+  {
+    soal: 'Aku selalu di depanmu, tapi kau tak bisa menyentuhku.',
+    jawaban: 'Masa depan'
+  },
+  {
+    soal: 'Aku memiliki jari, tetapi tidak punya tangan.',
+    jawaban: 'Sarung tangan'
+  }
+];
+
 module.exports = {
   sifatlist,
   when,
@@ -599,5 +618,6 @@ module.exports = {
   ceknamajodoh,
   darelist,
   soalFamily,
-  tebakSoal
+  tebakSoal,
+  siapaAkuSoal
 }
