@@ -15,7 +15,7 @@ if (fs.existsSync(license)) {
 
 const folderName = 'temp';
 fs.mkdir(folderName, (err) => {
-  if (!err) console.log(chalk.greenBright.bold('Berhasil membuat folder :', folderName));
+  if (!err) console.log('Berhasil membuat folder :', folderName);
 });
 
 function downloadAndSave(url, dest) {
