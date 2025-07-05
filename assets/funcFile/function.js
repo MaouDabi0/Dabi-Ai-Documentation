@@ -604,6 +604,14 @@ const siapaAkuSoal = [
   }
 ];
 
+const susunKata = [
+  { soal: 'R-O-K-E-T', tipe: 'Benda', jawaban: 'ROKET' },
+  { soal: 'T-I-A-P-N', tipe: 'Benda', jawaban: 'PINTA' },
+  { soal: 'I-R-K-A-M', tipe: 'Benda', jawaban: 'KARIM' },
+  { soal: 'N-A-B-A-K', tipe: 'Benda', jawaban: 'BANKA' },
+  { soal: 'K-A-M-U-R', tipe: 'Benda', jawaban: 'RUMAK' },
+];
+
 module.exports = {
   sifatlist,
   when,
