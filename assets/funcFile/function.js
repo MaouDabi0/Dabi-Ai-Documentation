@@ -627,5 +627,6 @@ module.exports = {
   darelist,
   soalFamily,
   tebakSoal,
-  siapaAkuSoal
+  siapaAkuSoal,
+  susunKata
 }
