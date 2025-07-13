@@ -525,6 +525,126 @@ const soalFamily = [
   {
     soal: 'Sebutkan hal yang dilakukan orang saat hujan!',
     jawaban: ['buka payung', 'pakai jas hujan', 'lari', 'berteduh', 'tidur']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang kamu lakukan saat bosan!',
+    jawaban: ['main hp', 'tidur', 'nonton', 'makan', 'jalan-jalan']
+  },
+  {
+    soal: 'Sebutkan barang yang sering ada di tas sekolah!',
+    jawaban: ['buku', 'pulpen', 'penghapus', 'pensil', 'penggaris']
+  },
+  {
+    soal: 'Sebutkan benda yang ada di kamar mandi!',
+    jawaban: ['sikat gigi', 'odol', 'sampo', 'sabun', 'gayung']
+  },
+  {
+    soal: 'Sebutkan kegiatan yang dilakukan saat libur panjang!',
+    jawaban: ['liburan', 'jalan-jalan', 'nonton', 'tidur', 'main game']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang bisa kamu lihat di langit malam!',
+    jawaban: ['bulan', 'bintang', 'awan', 'pesawat', 'langit gelap']
+  },
+  {
+    soal: 'Sebutkan alasan orang bangun kesiangan!',
+    jawaban: ['begadang', 'lupa pasang alarm', 'tidur larut', 'capek', 'mati lampu']
+  },
+  {
+    soal: 'Sebutkan makanan yang dimakan dengan sambal!',
+    jawaban: ['ayam goreng', 'ikan', 'tempe', 'tahu', 'lalapan']
+  },
+  {
+    soal: 'Sebutkan tempat yang biasanya ramai saat malam minggu!',
+    jawaban: ['cafe', 'mall', 'bioskop', 'taman', 'tempat makan']
+  },
+  {
+    soal: 'Sebutkan hal yang dilakukan orang sebelum tidur!',
+    jawaban: ['gosok gigi', 'main hp', 'berdoa', 'minum', 'cuci muka']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang kamu temukan di dapur!',
+    jawaban: ['kompor', 'panci', 'sendok', 'wajan', 'pisau']
+  },
+  {
+    soal: 'Sebutkan alasan orang menggunakan helm!',
+    jawaban: ['naik motor', 'keselamatan', 'aturan', 'takut ditilang', 'hujan']
+  },
+  {
+    soal: 'Sebutkan aktivitas yang dilakukan saat hujan deras!',
+    jawaban: ['tidur', 'minum kopi', 'berteduh', 'nonton', 'tidak keluar rumah']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang selalu dibawa saat pergi sekolah!',
+    jawaban: ['tas', 'buku', 'seragam', 'pulpen', 'botol minum']
+  },
+  {
+    soal: 'Sebutkan alat yang digunakan untuk memasak!',
+    jawaban: ['kompor', 'wajan', 'panci', 'spatula', 'sendok']
+  },
+  {
+    soal: 'Sebutkan warna yang sering dipakai untuk seragam sekolah!',
+    jawaban: ['putih', 'merah', 'biru', 'abu-abu', 'hijau']
+  },
+  {
+    soal: 'Sebutkan makanan yang sering ada saat ulang tahun!',
+    jawaban: ['kue', 'mie goreng', 'nasi tumpeng', 'snack', 'permen']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang digunakan untuk menulis!',
+    jawaban: ['pulpen', 'pensil', 'spidol', 'krayon', 'kapur']
+  },
+  {
+    soal: 'Sebutkan benda yang sering ada di ruang tamu!',
+    jawaban: ['sofa', 'meja', 'tv', 'karpet', 'remote']
+  },
+  {
+    soal: 'Sebutkan minuman yang sering diminum saat sarapan!',
+    jawaban: ['teh', 'kopi', 'susu', 'air putih', 'jus']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang kamu lihat di pasar!',
+    jawaban: ['sayur', 'ikan', 'buah', 'pedagang', 'pembeli']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang bisa bikin orang ketawa!',
+    jawaban: ['lelucon', 'video lucu', 'teman gokil', 'komedi', 'lawakan']
+  },
+  {
+    soal: 'Sebutkan nama-nama hari dalam seminggu!',
+    jawaban: ['senin', 'selasa', 'rabu', 'kamis', 'jumat']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang digunakan saat hujan!',
+    jawaban: ['payung', 'jas hujan', 'sepatu boots', 'topi', 'mantel']
+  },
+  {
+    soal: 'Sebutkan benda yang biasanya ada di meja belajar!',
+    jawaban: ['lampu', 'buku', 'pulpen', 'pensil', 'penghapus']
+  },
+  {
+    soal: 'Sebutkan jenis-jenis hewan peliharaan!',
+    jawaban: ['kucing', 'anjing', 'ikan', 'kelinci', 'burung']
+  },
+  {
+    soal: 'Sebutkan nama bulan dalam setahun!',
+    jawaban: ['januari', 'februari', 'maret', 'april', 'mei']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang berwarna merah!',
+    jawaban: ['apel', 'cabe', 'darah', 'tomat', 'mobil']
+  },
+  {
+    soal: 'Sebutkan sesuatu yang dilakukan orang di pagi hari!',
+    jawaban: ['sarapan', 'mandi', 'sholat', 'olahraga', 'kerja']
+  },
+  {
+    soal: 'Sebutkan jenis olahraga yang populer!',
+    jawaban: ['sepak bola', 'basket', 'bulu tangkis', 'lari', 'renang']
+  },
+  {
+    soal: 'Sebutkan benda yang berbentuk bulat!',
+    jawaban: ['bola', 'kelereng', 'telur', 'mata', 'piring']
   }
 ];
 
