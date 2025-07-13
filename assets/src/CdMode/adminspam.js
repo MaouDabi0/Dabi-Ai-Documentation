@@ -4,8 +4,6 @@ module.exports = {
   tags: 'Group Tools',
   desc: 'Spam admin: Naik-turun jabatan admin target beberapa kali',
   prefix: true,
-  owner: false,
-  premium: false,
 
   run: async (conn, msg, {
     chatInfo,
@@ -14,9 +12,6 @@ module.exports = {
     args
   }) => {
     const { chatId, senderId, isGroup } = chatInfo;
-
-    if (!(await isOwner(module.exports, conn, msg))) return;
-    if (!(await isPrem(module.exports, conn, msg))) return;
 
     try {
       if (!isGroup) {
