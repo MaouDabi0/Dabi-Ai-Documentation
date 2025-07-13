@@ -609,7 +609,11 @@ const susunKata = [
   { soal: 'T-I-A-P-N', tipe: 'Benda', jawaban: 'PINTA' },
   { soal: 'I-R-K-A-M', tipe: 'Benda', jawaban: 'KARIM' },
   { soal: 'N-A-B-A-K', tipe: 'Benda', jawaban: 'BANKA' },
-  { soal: 'K-A-M-U-R', tipe: 'Benda', jawaban: 'RUMAK' },
+  { soal: 'I-T-K-T-I', tipe: 'KATA', jawaban: 'TITIK' },
+  { soal: 'P-A-S-K-I', tipe: 'BENDA', jawaban: 'KIPAS' },
+  { soal: 'R-A-S-U-K', tipe: 'BENDA', jawaban: 'KASUR' },
+  { soal: 'P-A-M-L-U', tipe: 'BENDA', jawaban: 'LAMPU' },
+  { soal: 'H-A-M-U-R', tipe: 'Benda', jawaban: 'RUMAH' },
 ];
 
 module.exports = {
