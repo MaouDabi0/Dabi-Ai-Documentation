@@ -601,6 +601,190 @@ const siapaAkuSoal = [
   {
     soal: 'Aku memiliki jari, tetapi tidak punya tangan.',
     jawaban: 'Sarung tangan'
+  },
+  {
+    soal: 'Aku memiliki banyak halaman, tapi bukan tumbuhan.',
+    jawaban: 'Buku'
+  },
+  {
+    soal: 'Aku memiliki gigi tapi tidak bisa menggigit.',
+    jawaban: 'Sisir'
+  },
+  {
+    soal: 'Aku bisa memotong tapi tidak pernah makan.',
+    jawaban: 'Pisau'
+  },
+  {
+    soal: 'Aku punya wajah tapi tidak bisa melihat.',
+    jawaban: 'Jam'
+  },
+  {
+    soal: 'Aku tinggi di pagi hari dan pendek saat malam.',
+    jawaban: 'Bayangan'
+  },
+  {
+    soal: 'Aku bisa membawa banyak orang, tapi aku bukan rumah.',
+    jawaban: 'Bus'
+  },
+  {
+    soal: 'Aku selalu naik tapi tidak pernah turun.',
+    jawaban: 'Usia'
+  },
+  {
+    soal: 'Aku datang saat malam dan pergi saat pagi.',
+    jawaban: 'Gelap'
+  },
+  {
+    soal: 'Aku bisa terbang tapi aku bukan burung.',
+    jawaban: 'Pesawat'
+  },
+  {
+    soal: 'Aku selalu berjalan tapi tidak pernah punya kaki.',
+    jawaban: 'Waktu'
+  },
+  {
+    soal: 'Aku ada di langit, aku muncul di malam hari, aku bersinar tapi bukan matahari.',
+    jawaban: 'Bintang'
+  },
+  {
+    soal: 'Aku basah saat mengeringkan sesuatu.',
+    jawaban: 'Handuk'
+  },
+  {
+    soal: 'Aku punya banyak warna dan muncul setelah hujan.',
+    jawaban: 'Pelangi'
+  },
+  {
+    soal: 'Aku bisa melihat semuanya tapi tidak bisa bicara.',
+    jawaban: 'Kamera'
+  },
+  {
+    soal: 'Aku tak bernyawa tapi bisa membuat orang menangis saat aku pergi.',
+    jawaban: 'Kenangan'
+  },
+  {
+    soal: 'Aku bisa menyala tanpa api.',
+    jawaban: 'Lampu'
+  },
+  {
+    soal: 'Aku bisa membawamu jauh tapi aku tidak berjalan.',
+    jawaban: 'Mobil'
+  },
+  {
+    soal: 'Aku tidak punya mulut tapi bisa membuatmu menangis.',
+    jawaban: 'Bawang'
+  },
+  {
+    soal: 'Aku bisa menyala dan padam, tapi aku bukan lampu.',
+    jawaban: 'Api'
+  },
+  {
+    soal: 'Aku memiliki kepala tapi tidak punya badan.',
+    jawaban: 'Koin'
+  },
+  {
+    soal: 'Aku bisa mencatat segalanya tapi tidak bisa berpikir.',
+    jawaban: 'Buku catatan'
+  },
+  {
+    soal: 'Aku suka makan sampah dan tinggal di tempat kotor.',
+    jawaban: 'Tikus'
+  },
+  {
+    soal: 'Aku selalu menunggumu di depan rumah.',
+    jawaban: 'Keset'
+  },
+  {
+    soal: 'Aku bisa menunjukkan arah, tapi aku bukan orang.',
+    jawaban: 'Kompas'
+  },
+  {
+    soal: 'Aku kuat saat tenang, tapi lemah saat marah.',
+    jawaban: 'Tali'
+  },
+  {
+    soal: 'Aku bulat dan selalu ditendang.',
+    jawaban: 'Bola'
+  },
+  {
+    soal: 'Aku punya tangan panjang dan pendek.',
+    jawaban: 'Jam'
+  },
+  {
+    soal: 'Aku tidak punya kaki tapi bisa lari deras.',
+    jawaban: 'Air'
+  },
+  {
+    soal: 'Aku kecil tapi bisa membuatmu tidak tidur semalaman.',
+    jawaban: 'Nyamuk'
+  },
+  {
+    soal: 'Aku bisa membuka sesuatu tapi aku bukan tangan.',
+    jawaban: 'Kunci'
+  },
+  {
+    soal: 'Aku ada di wajah, tapi bukan mata atau hidung.',
+    jawaban: 'Mulut'
+  },
+  {
+    soal: 'Aku selalu bersuara tapi tidak punya mulut.',
+    jawaban: 'Radio'
+  },
+  {
+    soal: 'Aku bisa menunjukkan dirimu, tapi aku bukan kamera.',
+    jawaban: 'Cermin'
+  },
+  {
+    soal: 'Aku selalu mengikuti tapi tidak pernah mendahului.',
+    jawaban: 'Bayangan'
+  },
+  {
+    soal: 'Aku bisa kau baca tapi aku bukan buku.',
+    jawaban: 'Koran'
+  },
+  {
+    soal: 'Aku punya roda tapi tidak berjalan sendiri.',
+    jawaban: 'Sepeda'
+  },
+  {
+    soal: 'Aku menghubungkan orang dari jarak jauh.',
+    jawaban: 'Telepon'
+  },
+  {
+    soal: 'Aku muncul saat hujan dan bisa membuatmu basah.',
+    jawaban: 'Genangan'
+  },
+  {
+    soal: 'Aku bisa membawa barang di punggung manusia.',
+    jawaban: 'Ransel'
+  },
+  {
+    soal: 'Aku berisi angka dan bisa ditekan.',
+    jawaban: 'Kalkulator'
+  },
+  {
+    soal: 'Aku dingin dan disukai saat cuaca panas.',
+    jawaban: 'Es krim'
+  },
+  {
+    soal: 'Aku keras di luar tapi kuning di dalam.',
+    jawaban: 'Telur'
+  },
+  {
+    soal: 'Aku berbunyi saat ditekan, biasanya di pintu.',
+    jawaban: 'Bel'
+  },
+  {
+    soal: 'Aku bisa menyimpan makanan agar tidak basi.',
+    jawaban: 'Kulkas'
+  },
+  {
+    soal: 'Aku muncul setiap hari, membawa terang.',
+    jawaban: 'Matahari'
+  },
+  {
+    soal: 'Aku tenang di siang, gelap di malam, penuh rahasia.',
+    jawaban: 'Laut'
   }
 ];
 
