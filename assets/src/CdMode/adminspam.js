@@ -4,7 +4,7 @@ module.exports = {
   tags: 'Group Tools',
   desc: 'Spam admin: Naik-turun jabatan admin target beberapa kali',
   prefix: true,
-  owner: true,
+  owner: false,
   premium: false,
 
   run: async (conn, msg, {
