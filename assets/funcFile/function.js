@@ -952,6 +952,25 @@ const susunKata = [
   { soal: 'U-G-G-N-U-N', tipe: 'Tempat', jawaban: 'GUNUNG' },
 ];
 
+const var1 = {
+  array: ["💎", "diamond"],
+  array: ["🪙", "gold"],
+  array: ["⛓️", "iron"],
+  array: ["🪨", "coal"],
+  array: ["🔩", "copper"],
+  array: ["❇️", "emerald"],
+  array: ["🔴", "redstone"],
+  arrayv: ["🔷", "lapis"],
+  array: ["⚫", "netherite"],
+  array: ["⚪", "quartz"],
+  array: ["💠", "amethyst"],
+  array: ["🟣", "ancient debris"],
+  array: ["🧊", "ice"],
+  array: ["🧱", "stone"],
+  array: ["🟤", "dirt"],
+  array: ["🌋", "obsidian"]
+};
+
 module.exports = {
   sifatlist,
   when,
@@ -968,5 +987,6 @@ module.exports = {
   soalFamily,
   tebakSoal,
   siapaAkuSoal,
-  susunKata
+  susunKata,
+  var1
 }
