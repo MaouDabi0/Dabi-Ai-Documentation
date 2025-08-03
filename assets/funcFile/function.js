@@ -952,7 +952,7 @@ const susunKata = [
   { soal: 'U-G-G-N-U-N', tipe: 'Tempat', jawaban: 'GUNUNG' },
 ];
 
-const rsc = {
+const ore = {
   mat: [
     ["💎", "diamond", 500],
     ["🪙", "gold", 250],
@@ -973,6 +973,21 @@ const rsc = {
   ]
 };
 
+const wood = {
+  kayu: [
+    ["🪵", "oak", 20],
+    ["🌲", "spruce", 25],
+    ["🌳", "birch", 22],
+    ["🌴", "jungle", 24],
+    ["🌿", "acacia", 26],
+    ["🍁", "dark oak", 28],
+    ["🎋", "bamboo", 15],
+    ["🌼", "cherry", 27],
+    ["🪓", "crimson", 30],
+    ["🔥", "warped", 30]
+  ]
+};
+
 module.exports = {
   sifatlist,
   when,
@@ -990,5 +1005,6 @@ module.exports = {
   tebakSoal,
   siapaAkuSoal,
   susunKata,
-  rsc
+  ore,
+  wood
 }
