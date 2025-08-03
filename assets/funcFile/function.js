@@ -954,24 +954,25 @@ const susunKata = [
 
 const rsc = {
   mat: [
-    ["💎", "diamond"],
-    ["🪙", "gold"],
-    ["⛓️", "iron"],
-    ["🪨", "coal"],
-    ["🔩", "copper"],
-    ["❇️", "emerald"],
-    ["🔴", "redstone"],
-    ["🔷", "lapis"],
-    ["⚫", "netherite"],
-    ["⚪", "quartz"],
-    ["💠", "amethyst"],
-    ["🟣", "ancient debris"],
-    ["🧊", "ice"],
-    ["🧱", "stone"],
-    ["🟤", "dirt"],
-    ["🌋", "obsidian"]
+    ["💎", "diamond", 500],
+    ["🪙", "gold", 250],
+    ["⛓️", "iron", 100],
+    ["🪨", "coal", 50],
+    ["🔩", "copper", 80],
+    ["❇️", "emerald", 400],
+    ["🔴", "redstone", 60],
+    ["🔷", "lapis", 70],
+    ["⚫", "netherite", 1000],
+    ["⚪", "quartz", 90],
+    ["💠", "amethyst", 350],
+    ["🟣", "ancient debris", 900],
+    ["🧊", "ice", 40],
+    ["🧱", "stone", 30],
+    ["🟤", "dirt", 10],
+    ["🌋", "obsidian", 700]
   ]
 };
+
 module.exports = {
   sifatlist,
   when,
