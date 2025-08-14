@@ -952,42 +952,6 @@ const susunKata = [
   { soal: 'U-G-G-N-U-N', tipe: 'Tempat', jawaban: 'GUNUNG' },
 ];
 
-const ore = {
-  mat: [
-    ["💎", "diamond", 500],
-    ["🪙", "gold", 250],
-    ["⛓️", "iron", 100],
-    ["🪨", "coal", 50],
-    ["🔩", "copper", 80],
-    ["❇️", "emerald", 400],
-    ["🔴", "redstone", 60],
-    ["🔷", "lapis", 70],
-    ["⚫", "netherite", 1000],
-    ["⚪", "quartz", 90],
-    ["💠", "amethyst", 350],
-    ["🟣", "ancient debris", 900],
-    ["🧊", "ice", 40],
-    ["🧱", "stone", 30],
-    ["🟤", "dirt", 10],
-    ["🌋", "obsidian", 700]
-  ]
-};
-
-const wood = {
-  kayu: [
-    ["🪵", "oak", 20],
-    ["🌲", "spruce", 25],
-    ["🌳", "birch", 22],
-    ["🌴", "jungle", 24],
-    ["🌿", "acacia", 26],
-    ["🍁", "dark oak", 28],
-    ["🎋", "bamboo", 15],
-    ["🌼", "cherry", 27],
-    ["🪓", "crimson", 30],
-    ["🔥", "warped", 30]
-  ]
-};
-
 module.exports = {
   sifatlist,
   when,
@@ -1004,7 +968,5 @@ module.exports = {
   soalFamily,
   tebakSoal,
   siapaAkuSoal,
-  susunKata,
-  ore,
-  wood
+  susunKata
 }
