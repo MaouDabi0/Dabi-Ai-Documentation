@@ -515,6 +515,86 @@ const darelist = [
 
 const soalFamily = [
   {
+    soal: 'Siapakah ilmuwan yang dikenal sebagai Bapak Genetika?',
+    jawaban: ['Gregor Mendel', 'Charles Darwin', 'Watson', 'Crick']
+  },
+  {
+    soal: 'Siapakah penulis novel Laskar Pelangi?',
+    jawaban: ['Andrea Hirata', 'Tere Liye', 'Habiburrahman El Shirazy']
+  },
+  {
+    soal: 'Siapakah komposer musik klasik yang tuli di akhir hidupnya?',
+    jawaban: ['Beethoven', 'Mozart', 'Bach']
+  },
+  {
+    soal: 'Apakah nama teori ekonomi Adam Smith yang terkenal?',
+    jawaban: ['Invisible Hand', 'Division of Labor', 'Free Market']
+  },
+  {
+    soal: 'Apakah nama senjata tradisional khas Jawa Barat?',
+    jawaban: ['Kujang', 'Golok', 'Keris']
+  },
+  {
+    soal: 'Apakah bahasa resmi di negara Brasil?',
+    jawaban: ['Portugis', 'Spanyol', 'Inggris']
+  },
+  {
+    soal: 'Apakah nama lukisan terkenal karya Leonardo da Vinci?',
+    jawaban: ['Mona Lisa', 'The Last Supper', 'Vitruvian Man']
+  },
+  {
+    soal: 'Apakah hewan nasional dari Australia?',
+    jawaban: ['Kanguru', 'Koala', 'Emu']
+  },
+  {
+    soal: 'Dimanakah letak Petra, kota kuno yang dipahat di tebing batu?',
+    jawaban: ['Yordania', 'Mesir', 'Arab Saudi']
+  },
+  {
+    soal: 'Dimanakah negara terkecil di dunia berada?',
+    jawaban: ['Vatikan', 'Monako', 'San Marino']
+  },
+  {
+    soal: 'Dimanakah letak Gunung Kilimanjaro?',
+    jawaban: ['Tanzania', 'Kenya', 'Afrika']
+  },
+  {
+    soal: 'Siapakah ilmuwan yang menemukan radioaktifitas?',
+    jawaban: ['Marie Curie', 'Henri Becquerel', 'Pierre Curie']
+  },
+  {
+    soal: 'Siapakah pelukis terkenal asal Belanda yang melukis "Starry Night"?',
+    jawaban: ['Vincent van Gogh', 'Rembrandt', 'Vermeer']
+  },
+  {
+    soal: 'Apakah nama kerajaan terbesar di Nusantara pada abad ke-14?',
+    jawaban: ['Majapahit', 'Sriwijaya', 'Mataram']
+  },
+  {
+    soal: 'Apakah nama samudra yang berada di antara Afrika dan Australia?',
+    jawaban: ['Samudra Hindia', 'Samudra Pasifik', 'Samudra Atlantik']
+  },
+  {
+    soal: 'Apakah ibu kota dari negara Kazakhstan?',
+    jawaban: ['Astana', 'Almaty', 'Nur-Sultan']
+  },
+  {
+    soal: 'Dimanakah letak Stonehenge?',
+    jawaban: ['Inggris', 'Skotlandia', 'Irlandia']
+  },
+  {
+    soal: 'Dimanakah sungai Amazon bermuara?',
+    jawaban: ['Samudra Atlantik', 'Samudra Pasifik', 'Karibia']
+  },
+  {
+    soal: 'Siapakah filsuf Yunani yang menjadi guru Alexander Agung?',
+    jawaban: ['Aristoteles', 'Plato', 'Socrates']
+  },
+  {
+    soal: 'Siapakah ilmuwan yang menemukan hukum gravitasi?',
+    jawaban: ['Isaac Newton', 'Galileo Galilei', 'Kepler']
+  },
+  {
     soal: 'Sebutkan sesuatu yang sering kamu cari saat bangun tidur!',
     jawaban: ['handphone', 'jam', 'remote', 'kacamata', 'air minum']
   },
